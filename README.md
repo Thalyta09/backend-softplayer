@@ -13,10 +13,11 @@ A aplicação, a ser desenvolvida em Java, deverá expor uma API de cadastro, al
  - Naturalidade
  - Nacionalidade
  - CPF - obrigatório, deve ser validado (formato e não pode haver dois cadastros com mesmo cpf)
+ 
 Obs: a data de cadastro e atualização dos dados devem ser armazenados.
 
 2) Front-end
-A aplicação deverá ser acessível via navegador e possuir uma tela com formulário. Não há restrição em relação à tecnologia para o desenvolvimento do frontend.
+A aplicação deverá ser acessível via navegador e possuir uma tela com formulário. Não há restrição em relação à tecnologia para o desenvolvimento do frontend - (https://github.com/Thalyta09/frontend-softplayer)
 
 3) Segurança
 O acesso à aplicação só poderá ser realizado por um usuário pré-existente via autenticação basic.
