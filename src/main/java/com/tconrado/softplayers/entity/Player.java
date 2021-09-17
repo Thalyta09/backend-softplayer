@@ -1,42 +1,55 @@
 package com.tconrado.softplayers.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+
+    @NotBlank(message = "Campo Obrigatório")
     private String name;
+
     private String gender;
+
+    @Email(message = "Email Inválido")
     private String email;
+
     @JsonFormat(pattern="dd/MM/yyyy")
-    @Column(nullable = false)
+    @NotNull(message = "Campo Obrigatório")
     private LocalDate birth_date;
+
     private String naturality;
+
     private String nationality;
-    @Column(nullable = false)
+
+    @NotBlank(message = "Campo Obrigatório")
     private String cpf;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp creation_date;
+
     @UpdateTimestamp
     private Timestamp last_update;
 
-    public Player (){
-    }
-
-    public Player(
+    public Player (
             Long id,
             String name,
             String gender,
