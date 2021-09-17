@@ -2,7 +2,9 @@ package com.tconrado.softplayers.controller;
 
 import com.tconrado.softplayers.entity.Player;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public interface PlayerController {
@@ -10,9 +12,9 @@ public interface PlayerController {
 
     ResponseEntity<Player> getPlayerById(Long id);
 
-    ResponseEntity<Player> createPlayer (Player player);
+    ResponseEntity<Player> createPlayer (@Valid Player player);
 
-    ResponseEntity<Player> updatePlayer (Long id, Player player);
+    ResponseEntity<Player> updatePlayer (@Valid Long id, Player player);
 
     ResponseEntity<Player> deletePlayer (Long id);
 }

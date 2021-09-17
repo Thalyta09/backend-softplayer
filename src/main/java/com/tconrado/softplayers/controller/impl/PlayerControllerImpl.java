@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -31,8 +32,9 @@ public class PlayerControllerImpl implements PlayerController {
     }
 
     @Override
-    @PostMapping("/api/player/create")
-    public ResponseEntity<Player> createPlayer (@RequestBody Player player) {
+    @PostMapping("/api/player")
+    public ResponseEntity<Player> createPlayer(@Valid @RequestBody Player player) {
+
         Player addPlayer = service.createPlayer(player);
         HttpHeaders HttpHeaders = new HttpHeaders();
         HttpHeaders.add("player","/api/player" + addPlayer.getId().toString());
@@ -41,7 +43,8 @@ public class PlayerControllerImpl implements PlayerController {
 
     @Override
     @PutMapping("/api/player/{id}")
-    public ResponseEntity<Player> updatePlayer (@PathVariable("id") Long id, @RequestBody Player player) {
+    public ResponseEntity<Player> updatePlayer (@Valid @PathVariable("id") Long id, @RequestBody Player player) {
+
         service.updatePlayer(id, player);
         return new ResponseEntity<>(service.getPlayerById(id), HttpStatus.OK);
     }
