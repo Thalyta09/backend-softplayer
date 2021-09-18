@@ -32,6 +32,12 @@ public class PlayerControllerImpl implements PlayerController {
     }
 
     @Override
+    @GetMapping("/api/player/search")
+    public ResponseEntity<List<Player>> getPlayerByName(@RequestParam(value = "name") String name){
+        return new ResponseEntity<>(service.getPlayerByName(name), HttpStatus.OK);
+    }
+
+    @Override
     @PostMapping("/api/player")
     public ResponseEntity<Player> createPlayer(@Valid @RequestBody Player player) {
 

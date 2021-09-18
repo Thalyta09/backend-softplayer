@@ -32,6 +32,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public List<Player> getPlayerByName (String name) {
+        List<Player> names = new ArrayList<>();
+        repository.findByNameContainingIgnoreCase(name).forEach(names::add);
+        return names;
+    }
+
+    @Override
     public Player createPlayer(Player user) {
         return repository.save(user);
     }

@@ -10,6 +10,8 @@ public interface PlayerService {
 
     Player getPlayerById (Long id);
 
+    List<Player> getPlayerByName (String name);
+
     Player createPlayer (Player player);
 
     Optional<Player> updatePlayer(Long id, Player player);
